@@ -9,23 +9,21 @@ import org.slf4j.LoggerFactory;
 
 public class Main {
     private static final Logger logger = LoggerFactory.getLogger(Main.class);
-    private static final  String areaFilePath = "data/areas.json";
-    private static final  String zonesFilePath = "data/zones.json";
-    private static final  String outputFilePath = "output/zones.geojson";
+    private static final String AREA_FILE_PATH = "data/areas.json";
+    private static final String ZONES_FILE_PATH = "data/zones.json";
+    private static final String OUTPUT_FILE_PATH = "output/zones.geojson";
 
     public static void main(String[] args) {
         try {
-
-            RoadSideProcessorService processorService = new RoadSideProcessorService(
-                    new AreaZoneDataLoader(),
-                    new ZoneProcessor(),
-                    new GeometryConverter()
-            );
+            AreaZoneDataLoader dataLoader = new AreaZoneDataLoader();
+            ZoneProcessor zoneProcessor = new ZoneProcessor();
+            GeometryConverter geometryConverter = new GeometryConverter();
+            RoadSideProcessorService processorService = new RoadSideProcessorService(dataLoader, zoneProcessor, geometryConverter);
 
             processorService.processAndExport(
-                    areaFilePath,
-                    zonesFilePath,
-                    outputFilePath
+                    AREA_FILE_PATH,
+                    ZONES_FILE_PATH,
+                    OUTPUT_FILE_PATH
             );
         } catch (Exception e) {
             logger.error("Error processing roads: {}", e.getMessage(), e);

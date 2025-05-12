@@ -8,11 +8,15 @@ import com.inrix.util.GeoJSONExporter;
 import com.inrix.util.GeometryConverter;
 import com.inrix.util.ZoneProcessor;
 import org.locationtech.jts.geom.Geometry;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 import java.util.Map;
 
 public class RoadSideProcessorService {
+    private static final Logger logger = LoggerFactory.getLogger(RoadSideProcessorService.class);
+
     private final AreaZoneDataLoader dataLoader;
     private final ZoneProcessor zoneProcessor;
     private final GeometryConverter geometryConverter;
@@ -43,11 +47,12 @@ public class RoadSideProcessorService {
     }
 
     private void logProcessedAreas(List<AreaWithSplitZonesDTO> processedAreas) {
-        System.out.println("Processed " + processedAreas.size() + " areas with split zones");
+        logger.info("Processed {} areas with split zones", processedAreas.size());
         processedAreas.forEach(dto -> {
-            System.out.println("Area " + dto.getArea().toString() +
-                    " has " + dto.getLeftZones().size() + " left zones and " +
-                    dto.getRightZones().size() + " right zones");
+            logger.info("Area {} has {} left zones and {} right zones",
+                    dto.getArea().toString(),
+                    dto.getLeftZones().size(),
+                    dto.getRightZones().size());
         });
     }
 }

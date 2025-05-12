@@ -44,13 +44,10 @@ public class ZoneProcessor {
     }
 
     private String determineZoneSide(Zone zone) {
-        if (zone.getLocationReferences() != null) {
-            for (Zone.LocationReference ref : zone.getLocationReferences()) {
-                if (ref.getSide() != null && !ref.getSide().isEmpty()) {
-                    return ref.getSide().toLowerCase();
-                }
-            }
-        }
-        return null;
+        return zone.getLocationReferences().stream()
+                .filter(ref -> ref.getSide() != null && !ref.getSide().isEmpty())
+                .map(ref -> ref.getSide().toLowerCase())
+                .findFirst()
+                .orElse("unknown");
     }
 }
