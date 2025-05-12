@@ -81,11 +81,6 @@ private static final String ZONES_FILE_PATH = "data/zones.json";
 private static final String OUTPUT_FILE_PATH = "output/zones.geojson";
 ```
 
-Or run with custom paths:
-```sh
-java -jar target/assessment-1.0-SNAPSHOT.jar /custom/path/areas.json /custom/path/zones.json /custom/output/path.geojson
-```
-
 ### 9. Troubleshooting
 
 Common issues:
