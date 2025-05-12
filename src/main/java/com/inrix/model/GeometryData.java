@@ -12,6 +12,10 @@ public class GeometryData {
         return coordinates.get(0);
     }
 
+    public void setCoordinates(List<List<List<Double>>> coordinates) {
+        this.coordinates = coordinates;
+    }
+
     @Override
     public String toString() {
         return "GeometryData{" +

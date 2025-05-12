@@ -50,7 +50,19 @@ public class Zone {
         private Integer end;
         @JsonProperty("side")
         private String side;
+
+        public LocationReference() {
+        }
+
+        public LocationReference(String side) {
+            this.side = side;
+        }
+
         public String getSide() { return side; }
+
+        public void setSide(String side) {
+            this.side = side;
+        }
 
         @Override
         public String toString() {
@@ -64,12 +76,23 @@ public class Zone {
         }
     }
 
+    // Getters
     public String getCurbZoneId() { return curbZoneId; }
     public LineGeometryData getGeometry() { return geometry; }
     public String getParkingAngle() { return parkingAngle; }
-
     public List<LocationReference> getLocationReferences() {
         return locationReferences;
+    }
+
+    // Setter
+
+
+    public void setCurbZoneId(String curbZoneId) {
+        this.curbZoneId = curbZoneId;
+    }
+
+    public void setLocationReferences(List<LocationReference> locationReferences) {
+        this.locationReferences = locationReferences;
     }
 
     @Override

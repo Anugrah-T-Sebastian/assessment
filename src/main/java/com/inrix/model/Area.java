@@ -17,6 +17,7 @@ public class Area {
         return this.curbAreaId.toString();
     }
 
+
     public static class AreaCollection {
         @JsonProperty("areas")
         private List<Area> areas;
@@ -28,6 +29,21 @@ public class Area {
     public Integer getCurbAreaId() { return curbAreaId; }
     public GeometryData getGeometry() { return geometry; }
     public List<String> getCurbZoneIds() { return curbZoneIds; }
+
+    public void setCurbAreaId(Integer curbAreaId) {
+        this.curbAreaId = curbAreaId;
+    }
+
+    // Setter
+    public void setCurbAreaId(int i) {
+        this.curbAreaId = i;
+    }
+    public void setCurbZoneIds(List<String> curbZoneIds) {
+        this.curbZoneIds = curbZoneIds;
+    }
+    public void setGeometry(GeometryData geometry) {
+        this.geometry = geometry;
+    }
 
     @Override
     public String toString() {

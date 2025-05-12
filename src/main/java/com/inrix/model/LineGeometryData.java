@@ -12,6 +12,10 @@ public class LineGeometryData {
         return coordinates;
     }
 
+    public void setCoordinates(List<List<Double>> coordinates) {
+        this.coordinates = coordinates;
+    }
+
     @Override
     public String toString() {
         return "GeometryData{" +
