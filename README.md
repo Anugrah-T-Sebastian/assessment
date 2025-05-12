@@ -15,9 +15,9 @@
    ```  
 
 ## Output GeoJSON File
-The generated [`zones.geojson`](./output/zones.geojson) can be visualized below:
+The generated [`zones.geojson`](./output/zones.geojson) has been visualised below. The can also be visualised on [https://geojson.io/](https://geojson.io/#map=15.3/37.73998/-122.494298)
 
-### GeoJSON Visualization
+### GeoJSON Visualisation
 
 
 [![GeoJSON Zones Map 1](./output/images/zone_1.png)](./output/zones.geojson)
