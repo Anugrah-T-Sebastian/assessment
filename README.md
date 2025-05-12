@@ -18,15 +18,18 @@
 The generated [`zones.geojson`](./output/zones.geojson) can be visualized below:
 
 ### GeoJSON Visualization
-
+<br>
 [![GeoJSON Zones Map 1](./output/images/zone_1.png)](./output/zones.geojson)
+<br>
 *(Click the image to view the output file)*
 
 
 [![GeoJSON Zones Map 1](./output/images/zone_3.png)](./output/zones.geojson)  
+<br>
 *(Click the image to view the output file)*
 
 
-[![GeoJSON Zones Map 1](./output/images/zone_2.png)](./output/zones.geojson)  
+[![GeoJSON Zones Map 1](./output/images/zone_2.png)](./output/zones.geojson)
+<br>
 *(Click the image to view the output file)*
 
