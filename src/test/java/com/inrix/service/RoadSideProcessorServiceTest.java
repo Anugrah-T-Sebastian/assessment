@@ -24,7 +24,7 @@ class RoadSideProcessorServiceTest {
         mockDataLoader = mock(AreaZoneDataLoader.class);
         mockZoneProcessor = mock(ZoneProcessor.class);
         mockGeometryConverter = mock(GeometryConverter.class);
-        processorService = new RoadSideProcessorService(mockDataLoader, mockZoneProcessor, mockGeometryConverter);
+        processorService = new RoadSideProcessorService();
     }
 
     @Test

@@ -21,13 +21,10 @@ public class RoadSideProcessorService {
     private final ZoneProcessor zoneProcessor;
     private final GeometryConverter geometryConverter;
 
-    public RoadSideProcessorService(
-            AreaZoneDataLoader dataLoader,
-            ZoneProcessor zoneProcessor,
-            GeometryConverter geometryConverter) {
-        this.dataLoader = dataLoader;
-        this.zoneProcessor = zoneProcessor;
-        this.geometryConverter = geometryConverter;
+    public RoadSideProcessorService() {
+        this.dataLoader = new AreaZoneDataLoader();
+        this.zoneProcessor = new ZoneProcessor();
+        this.geometryConverter = new GeometryConverter();
     }
 
     public void processAndExport(String areasFile, String zonesFile, String outputPath) throws Exception {
