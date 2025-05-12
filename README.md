@@ -50,11 +50,6 @@ This will:
 
 #### Standard Execution:
 ```sh
-java -jar target/assessment-1.0-SNAPSHOT.jar
-```
-
-#### Alternative Execution:
-```sh
 java -cp target/assessment-1.0-SNAPSHOT.jar com.inrix.Main
 ```
 
