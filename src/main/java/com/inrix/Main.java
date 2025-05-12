@@ -1,9 +1,6 @@
 package com.inrix;
 
-import com.inrix.loader.AreaZoneDataLoader;
 import com.inrix.service.RoadSideProcessorService;
-import com.inrix.util.GeometryConverter;
-import com.inrix.util.ZoneProcessor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
