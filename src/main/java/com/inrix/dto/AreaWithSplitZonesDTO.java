@@ -3,18 +3,20 @@ package com.inrix.dto;
 import com.inrix.model.Area;
 import com.inrix.model.Zone;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class AreaWithSplitZonesDTO {
-    private final Area area;
-    private final List<Zone> leftZones;
-    private final List<Zone> rightZones;
+    private Area area;
+    private List<Zone> leftZones;
+    private List<Zone> rightZones;
+
+    public AreaWithSplitZonesDTO() {
+    }
 
     public AreaWithSplitZonesDTO(Area area, List<Zone> leftZones, List<Zone> rightZones) {
         this.area = area;
-        this.leftZones = leftZones != null ? leftZones : new ArrayList<>();
-        this.rightZones = rightZones != null ? rightZones : new ArrayList<>();
+        this.leftZones = leftZones;
+        this.rightZones = rightZones;
     }
 
     // Getters
@@ -28,6 +30,18 @@ public class AreaWithSplitZonesDTO {
 
     public List<Zone> getRightZones() {
         return rightZones;
+    }
+
+    public void setArea(Area area) {
+        this.area = area;
+    }
+
+    public void setLeftZones(List<Zone> leftZones) {
+        this.leftZones = leftZones;
+    }
+
+    public void setRightZones(List<Zone> rightZones) {
+        this.rightZones = rightZones;
     }
 
     @Override

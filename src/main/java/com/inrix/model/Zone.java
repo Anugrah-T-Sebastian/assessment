@@ -58,11 +58,14 @@ public class Zone {
             this.side = side;
         }
 
+        // Getters
         public String getSide() { return side; }
 
+        // Setter
         public void setSide(String side) {
             this.side = side;
         }
+
 
         @Override
         public String toString() {
@@ -84,15 +87,16 @@ public class Zone {
         return locationReferences;
     }
 
-    // Setter
-
-
+    // Setters
     public void setCurbZoneId(String curbZoneId) {
         this.curbZoneId = curbZoneId;
     }
-
     public void setLocationReferences(List<LocationReference> locationReferences) {
         this.locationReferences = locationReferences;
+    }
+
+    public void setGeometry(LineGeometryData geometry) {
+        this.geometry = geometry;
     }
 
     @Override
