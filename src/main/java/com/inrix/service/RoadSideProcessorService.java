@@ -27,6 +27,15 @@ public class RoadSideProcessorService {
         this.geometryConverter = new GeometryConverter();
     }
 
+    public RoadSideProcessorService(AreaZoneDataLoader dataLoader,
+                                    ZoneProcessor zoneProcessor,
+                                    GeometryConverter geometryConverter) {
+        this.dataLoader = dataLoader;
+        this.zoneProcessor = zoneProcessor;
+        this.geometryConverter = geometryConverter;
+    }
+
+
     public void processAndExport(String areasFile, String zonesFile, String outputPath) throws Exception {
         // Load data
         Map<String, Area> areas = dataLoader.loadAreas(areasFile);
@@ -51,5 +60,19 @@ public class RoadSideProcessorService {
                     dto.getLeftZones().size(),
                     dto.getRightZones().size());
         });
+    }
+
+    //
+
+    public AreaZoneDataLoader getDataLoader() {
+        return dataLoader;
+    }
+
+    public ZoneProcessor getZoneProcessor() {
+        return zoneProcessor;
+    }
+
+    public GeometryConverter getGeometryConverter() {
+        return geometryConverter;
     }
 }

@@ -1,12 +1,17 @@
 package com.inrix.service;
 
+import com.inrix.dto.AreaWithSplitZonesDTO;
 import com.inrix.loader.AreaZoneDataLoader;
 import com.inrix.model.Area;
 import com.inrix.model.Zone;
+import com.inrix.util.GeoJSONExporter;
 import com.inrix.util.GeometryConverter;
 import com.inrix.util.ZoneProcessor;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.locationtech.jts.geom.Geometry;
+import org.mockito.MockedStatic;
+import org.mockito.Mockito;
 
 import java.util.*;
 
@@ -21,10 +26,13 @@ class RoadSideProcessorServiceTest {
 
     @BeforeEach
     void setUp() {
+        // Create mocks
         mockDataLoader = mock(AreaZoneDataLoader.class);
         mockZoneProcessor = mock(ZoneProcessor.class);
         mockGeometryConverter = mock(GeometryConverter.class);
-        processorService = new RoadSideProcessorService();
+
+        // Create service with mocked dependencies
+        processorService = new RoadSideProcessorService(mockDataLoader, mockZoneProcessor, mockGeometryConverter);
     }
 
     @Test
@@ -39,16 +47,23 @@ class RoadSideProcessorServiceTest {
         when(mockDataLoader.loadAreas(areasFile)).thenReturn(mockAreas);
         when(mockDataLoader.loadZones(zonesFile)).thenReturn(mockZones);
 
-        List mockProcessedAreas = new ArrayList<>();
+        List<AreaWithSplitZonesDTO> mockProcessedAreas = new ArrayList<>();
         when(mockZoneProcessor.processAreasWithSplitZones(mockAreas, mockZones)).thenReturn(mockProcessedAreas);
 
-        // Act
-        processorService.processAndExport(areasFile, zonesFile, outputPath);
+        List<List<Geometry>> mockGeometries = new ArrayList<>();
+        when(mockGeometryConverter.convertToGeometries(mockProcessedAreas)).thenReturn(mockGeometries);
 
-        // Assert
-        verify(mockDataLoader).loadAreas(areasFile);
-        verify(mockDataLoader).loadZones(zonesFile);
-        verify(mockZoneProcessor).processAreasWithSplitZones(mockAreas, mockZones);
-        verify(mockGeometryConverter).convertToGeometries(mockProcessedAreas);
+        // Mock the static GeoJSONExporter
+        try (MockedStatic<GeoJSONExporter> mockedExporter = Mockito.mockStatic(GeoJSONExporter.class)) {
+            // Act
+            processorService.processAndExport(areasFile, zonesFile, outputPath);
+
+            // Assert
+            verify(mockDataLoader).loadAreas(areasFile);
+            verify(mockDataLoader).loadZones(zonesFile);
+            verify(mockZoneProcessor).processAreasWithSplitZones(mockAreas, mockZones);
+            verify(mockGeometryConverter).convertToGeometries(mockProcessedAreas);
+            mockedExporter.verify(() -> GeoJSONExporter.exportZonesToGeoJSON(mockGeometries, outputPath));
+        }
     }
 }
