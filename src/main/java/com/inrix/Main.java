@@ -15,10 +15,7 @@ public class Main {
 
     public static void main(String[] args) {
         try {
-            AreaZoneDataLoader dataLoader = new AreaZoneDataLoader();
-            ZoneProcessor zoneProcessor = new ZoneProcessor();
-            GeometryConverter geometryConverter = new GeometryConverter();
-            RoadSideProcessorService processorService = new RoadSideProcessorService(dataLoader, zoneProcessor, geometryConverter);
+            RoadSideProcessorService processorService = new RoadSideProcessorService();
 
             processorService.processAndExport(
                     AREA_FILE_PATH,
