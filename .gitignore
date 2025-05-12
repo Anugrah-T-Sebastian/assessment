@@ -24,6 +24,7 @@ hs_err_pid*
 replay_pid*
 
 # Maven
+/target/
 target/
 pom.xml.tag
 pom.xml.releaseBackup
@@ -275,7 +276,6 @@ __pycache__/
 *.bak
 *.tmp
 *.log
-*.swp
 *.swo
 *.swn
 *.bak
@@ -396,3 +396,6 @@ __pycache__/
 *.tmp
 *.log
 *.sw*
+/target
+*.class
+/target
