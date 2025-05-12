@@ -6,15 +6,6 @@ import org.locationtech.jts.geom.Coordinate;
 import java.util.List;
 import java.util.stream.Collectors;
 
-
-
-
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.locationtech.jts.geom.Coordinate;
-import java.util.List;
-import java.util.stream.Collectors;
-
 public class LineGeometryData {
     private String type;
     private List<List<Double>> coordinates; // Generic type to handle both formats
