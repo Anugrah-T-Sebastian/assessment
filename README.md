@@ -93,7 +93,7 @@ For any other issues, check the logs or contact the development team.
 ---
 
 ## Output GeoJSON File
-The generated [`zones.geojson`](./output/zones.geojson) has been visualised below. The can also be visualised on [https://geojson.io/](https://geojson.io/#map=15.3/37.73998/-122.494298)
+The generated [`zones.geojson`](./output/zones.geojson) has been visualised below. It can also be visualised on [https://geojson.io/](https://geojson.io/#map=15.3/37.73998/-122.494298)
 
 ### GeoJSON Visualisation
 
