@@ -18,7 +18,7 @@ public class Area {
     }
 
     public static class AreaCollection {
-        @JsonProperty("areas") // Add this annotation
+        @JsonProperty("areas")
         private List<Area> areas;
 
         public List<Area> getAreas() { return areas; }
