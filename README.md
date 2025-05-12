@@ -16,8 +16,8 @@ Before running the project, ensure you have the following installed:
 
 #### Option A: Clone from Git Repository
 ```sh
-git clone <repository-url>
-cd <project-directory>
+git clone https://github.com/Anugrah-T-Sebastian/assessment.git
+cd assessment
 ```
 
 #### Option B: Using Downloaded Source
